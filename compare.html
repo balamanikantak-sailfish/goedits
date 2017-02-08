@@ -1,0 +1,184 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script src="js/jquery-1.12.3.min.js" charset="utf-8"></script>
+<script src="js/bootstrap.min.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="css/styles.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+<link href="css/lightbox.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- Bootsnav CSS -->
+<link href="css/bootsnav.css" rel="stylesheet">
+<style type="text/css">
+nav.navbar.bootsnav ul.nav > li > a
+{
+   color : black;
+}
+
+nav.navbar.bootsnav ul.nav > li > a:hover
+{
+   color : black;
+   background-color:Gold !important;
+}
+</style>
+</head>
+<body>
+<div class="page-loader" style="display: none;">
+  <div class="loader"> <span class="dot dot_1"></span> <span class="dot dot_2"></span> <span class="dot dot_3"></span> <span class="dot dot_4"></span> </div>
+</div>
+<!-- Navigation Section -->
+
+<nav class="navbar navbar-default navbar-fixed white bootsnav">
+  <div class="container"> 
+    <!-- Start Header Navigation -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="fa fa-bars"></i> </button>
+ <a class="navbar-brand" href="#brand"><img src="img/logo/mlogo.png" class="logo" alt="" style="width:120px;height:65px;"> </a> </div>
+    <!-- End Header Navigation --> 
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-menu">
+      <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+        <li><a href="#home" id="home">Home</a></li>
+        <li><a href="#service" id="service">How It Works</a></li>
+        <li><a href id="difference" id="difference">Difference</a></li>
+        <li><a href="#pricing" id="pricing">Pricing</a></li>
+	    <li><a href="#contact" id="contact">Contact Us</a></li>
+	    <li><a href="#faq" id="faq">FAQ</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+<div class="row">
+<div class="col-lg-12 col-md-12">
+
+<div class="compare-viewer">
+  <div class="compare-loading"><img src="./img/shoot/loading_images.gif" alt="">Loading Images...</div>
+  <div class="compare-item" id="compare1">
+    <figure class="compare-after" style="background-image:url(&#39;./img/shoot/after_img1.jpg&#39;);">
+      <img class="after-img" src="./img/shoot/after_img1.jpg" alt="">
+    </figure>
+    <figure class="compare-before" style="background-image:url(&#39;./img/shoot/before_img1.jpg&#39;);">
+      <img class="before-img" src="./img/shoot/before_img1.jpg" alt="">
+    </figure>
+  </div>
+  <div class="compare-item" id="compare2">
+    <figure class="compare-after" style="background-image:url(&#39;./img/shoot/after_img2.jpg&#39;);">
+      <img class="after-img" src="./img/shoot/after_img2.jpg" alt="">
+    </figure>
+    <figure class="compare-before" style="background-image:url(&#39;./img/shoot/before_img2.jpg&#39;);">
+      <img class="before-img" src="./img/shoot/before_img2.jpg" alt="">
+    </figure>
+  </div>
+</div>
+</div>
+<div class="compare-thumbsinner open">
+<p></p>
+</div>
+</div>
+  <script  type="text/javascript">
+     $("a#home").on("click",function(){
+         window.location = "/";
+     });
+	 $("a#service").on("click",function(){
+         window.location = "/#service";
+     });
+	 $("a#pricing").on("click",function(){
+         window.location = "/pricing.html";
+     });
+	 $("a#contact").on("click",function(){
+         window.location = "/#contact";
+     });
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    function setupviewer(){
+      var windowheight = $(window).outerHeight();
+      var headerheight = $("header").outerHeight();
+      var compareviewer = $(".compare-viewer");
+      compareviewer.css("height", windowheight - headerheight);
+    }
+    setupviewer();
+    function checkCompareImgLoaded(){
+      var count = 0;
+      var count_compareimg = $(".compare-item").length * 2;
+      $(".compare-item img").one('load', function() {
+        count++;
+        if(count == count_compareimg){
+          $("#compare1").addClass("animated slideInLeft active"); //start rollin
+          $(".compare-loading").hide(); //hide loading message
+          $(".thumbs-list").css("display", "table"); //display thumbnails
+          startCompare(); //start compare image
+        }
+      });
+    }
+    checkCompareImgLoaded();
+    function thumbSwitch(){
+      var currentthumb = $(".thumbs-list li.current");
+      if(currentthumb.next("li").length == 1){
+        currentthumb.next("li").addClass("next");
+        $(".thumbs-list li").removeClass("current");
+        $(".thumbs-list li.next").addClass("current").removeClass("next");
+      }else{
+        $(".thumbs-list li").removeClass("current");
+        $(".thumbs-list li:first-child").addClass("current");
+      }
+    }
+    function startCompare(){
+      var endAnimation = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
+      var active_compare = $(".compare-item.active");
+      active_compare.bind(endAnimation, function(){
+        $(this).unbind(endAnimation).removeClass("slideInLeft").children(".compare-after").animate({
+          "width": "100%",
+        }, 7000, function(){
+          active_compare.addClass("animated slideInLeft").bind(endAnimation, function(){
+            thumbSwitch(); //switch to current thumbnail
+            if($(this).next().length == 1){
+              $(".compare-after").css("width", "20px");
+              $(this).next().addClass("animated slideInLeft active");
+              $(this).unbind(endAnimation).removeClass("slideInLeft active");
+              startCompare();
+            }else{
+              $(".compare-after").css("width", "20px");
+              $("#compare1").addClass("animated slideInLeft active");
+              $(this).unbind(endAnimation).removeClass("slideInLeft active");
+              startCompare();
+            }
+          });
+        });
+      });
+    }
+    $(".thumbs-image").on("click", function(event){
+      var endAnimation = 'webkitAnimationEnd oanimationend msAnimationEnd animationend';
+      var all_compareafter = $(".compare-after");
+      var active_compare = $(".compare-item.active");
+      var currenttarget = $(this).attr("data-id");
+      var targetId = $("#compare" + currenttarget);
+
+      if(targetId.hasClass("active") == false){
+        $(".thumbs-list li").removeClass("current"); // reset selected thumb-nail
+        $(this).parent().parent("li").addClass("current"); //add class selected current thumb-nail
+
+        all_compareafter.clearQueue().stop();
+        active_compare.addClass("animated slideInLeft").bind(endAnimation, function(){
+          active_compare.unbind(endAnimation).removeClass("slideInLeft active");
+          targetId.addClass("animated slideInLeft active");
+          all_compareafter.css("width", "20px");
+          startCompare();
+        });
+      }
+    });
+    $(".compare-btnmobile").on("click", function(e){
+      e.preventDefault();
+      $(".compare-thumbsinner").toggleClass("open");
+    });
+    $(window).resize(function(){
+      setupviewer();
+    });
+  });
+</script>
+</body></html>
