@@ -2,11 +2,10 @@
 <html>
 <body>
 
-<h1>My first PHP page</h1>
-
 <?php
-echo "Hello World!";
-?> 
+$homepage = file_get_contents('index.html');
+echo $homepage;
+?>
 
 </body>
 </html>
