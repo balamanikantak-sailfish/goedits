@@ -14,13 +14,17 @@
 
 <script src="{% static "js/jquery-1.12.3.min.js" %}" charset="utf-8"></script>
 <script src="{% static "js/bootstrap.min.js" %}" charset="utf-8"></script>
-<link rel="stylesheet" type="text/css" href="{% static "css/styles.min.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/animate.css" %}">
 <link href="{% static "css/lightbox.css" %}" rel="stylesheet">
-<link rel="stylesheet" href="{% static "css/style.css" %}">
 <!-- Bootsnav CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,400,200,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{% static "css/styles.min.css" %}">
+<link rel="stylesheet" href="{% static "css/style.css" %}">
 <link href="{% static "css/bootsnav.css" %}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
 <style type="text/css">
 nav.navbar.bootsnav ul.nav > li > a
 {
@@ -45,7 +49,7 @@ nav.navbar.bootsnav ul.nav > li > a:hover
     <!-- Start Header Navigation -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="fa fa-bars"></i> </button>
- <a class="navbar-brand" href="#brand"><img src="{% static "img/logo/mlogo.png" %}" class="logo" alt="" style="width:120px;height:65px;"> </a> </div>
+ <a class="navbar-brand" href="/"><img src="{% static "img/logo/mlogo.png" %}" class="logo" alt="" style="width:120px;height:65px;"> </a> </div>
     <!-- End Header Navigation --> 
     
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -88,6 +92,32 @@ nav.navbar.bootsnav ul.nav > li > a:hover
 <p></p>
 </div>
 </div>
+</div>
+</div>
+ <!-- Footer Section -->
+  <footer class="footer" style="padding:0px">
+    <div class="footer-widget-section text-center" style="background-color:gray;">
+        <div class="container">
+            <div class="social-links">
+              <ul class="list-inline">
+                <li><a href="https://www.twitter.com/goedits"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.linkedin.com/goedits"><i class="fa fa-linkedin-square"></i></a></li>
+                <li><a href="https://www.facebook.com/goedits"><i class="fa fa-facebook-square"></i></a></li>
+                <li><a href="https://in.pinterest.com/goedits"><i class="fa fa-pinterest-square"></i></a></li>
+                <li><a href="https://www.instagram.com/goedits"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div><!-- /.social-links -->
+        </div>
+    </div><!-- /.footer-widget-section -->
+
+    <div class="copyright-section text-center">
+        <div class="container">
+            <div class="copytext">
+                <a href="http://www.goedits.com"><img src="{% static "img/logo/copyrightlogo.png" %}" alt="GoEdits" style="width:80px;height:40px;" /></a><p style="color:white;">2017-2018 © GoEdits.com</p>
+            </div>
+        </div>
+    </div>
+  </footer>
 
 <script type="text/javascript">
   $(document).ready(function(){
