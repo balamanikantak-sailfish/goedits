@@ -25,7 +25,7 @@ urlpatterns = [
 	 url(r'^$', index),
 	 url(r'^compare/$', compare),
 	 url(r'^pricing/$', pricing),
-	 url(r'^contact$', contact),
+	 url(r'^contact/$', contact),
 	 url(r'^service$', service),
      url(r'^admin', admin.site.urls)
 ]
