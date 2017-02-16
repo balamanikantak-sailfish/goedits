@@ -46,7 +46,6 @@ def contact(request):
             sg = sendgrid.SendGridClient(settings.SENDGRID_USERNAME, settings.SENDGRID_PASSWORD)
             message = sendgrid.Mail()
             message.add_to('kbmanikanta90@gmail.com')
-			message.add_to('manikanta@revalsys.com')
             message.set_subject(cname_mail)
             message.set_html(content_mail)
             message.set_text(content_mail)
