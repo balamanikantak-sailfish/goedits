@@ -19,6 +19,5 @@ from goadmin.views import index,users
 
 
 urlpatterns = [
-	 url(r'^$', index),
-	 url(r'^api/users/$', users) 
+	 url(r'^$', index)
 ]
