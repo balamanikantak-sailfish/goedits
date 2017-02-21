@@ -37,8 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'goedits',
-	'goadmin'
+    'goedits'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -113,8 +112,8 @@ USE_TZ = True
 
 # send grid
 # please replace "<sendgrid_username>" and "<sendgrid_password>" with your SendGrid credentials
-SENDGRID_USERNAME = 'kbmanikanta90';
-SENDGRID_PASSWORD = 'bala13422';
+SENDGRID_USERNAME = '';
+SENDGRID_PASSWORD = '';
 
 
 
