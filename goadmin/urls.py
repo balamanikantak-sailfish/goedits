@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from goadmin.views import index 
+from goadmin.views import index,users 
 
 
 urlpatterns = [
-	 url(r'^$', index)
+	 url(r'^$', index),
+	 url(r'^api/users/$', users) 
 ]

@@ -16,5 +16,6 @@ urlpatterns = [
 	 url(r'^contact/$',goedits.views.contact, name='contact'),
 	 url(r'^service$',goedits.views.service, name='service'),
 	 url(r'^goadmin/$',goadmin.views.index, name='index'),
+	 url(r'^goadmin/api/users/$',goadmin.views.users, name='users'),
      url(r'^admin', include(admin.site.urls)),
 ]
