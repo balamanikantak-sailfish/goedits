@@ -45,11 +45,11 @@ def contact(request):
             content_mail = str(form.cleaned_data['content_mail']) + str(form.cleaned_data['mail_subject'])
             sg = sendgrid.SendGridClient(settings.SENDGRID_USERNAME, settings.SENDGRID_PASSWORD)
             message = sendgrid.Mail()
-            message.add_to(to_mail)
+            message.add_to("kbmanikanta90@gmail.com")
             message.set_subject(cname_mail)
             message.set_html(content_mail)
             message.set_text(content_mail)
-            message.set_from('contact@goedits.com')
+            message.set_from(to_mail)
             status, msg = sg.send(message)
 
             if status == 200:
