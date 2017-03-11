@@ -6,8 +6,7 @@ from django.conf import settings
 from goedits.form import MailForm
 import sendgrid
 from django.template import loader
-from django.core.mail import send_mail, BadHeaderError
-
+from django.core.mail import EmailMessage
 def index(request):
     template = loader.get_template('index.html')
     context = {
@@ -36,6 +35,13 @@ def service(request):
     }
     return HttpResponse(template.render(context, request))
 	
+def faq(request):
+    template = loader.get_template('faq.html')
+    context = {
+        'data': 'faq',
+    }
+    return HttpResponse(template.render(context, request))
+	
 def contact(request):
     if request.method == 'POST':
         form = MailForm(request.POST)
@@ -43,14 +49,16 @@ def contact(request):
             to_mail = str(form.cleaned_data['to_mail'])
             cname_mail = str(form.cleaned_data['cname_mail'])
             content_mail = str(form.cleaned_data['content_mail']) + str(form.cleaned_data['mail_subject'])
-            sg = sendgrid.SendGridClient(settings.SENDGRID_USERNAME, settings.SENDGRID_PASSWORD)
-            message = sendgrid.Mail()
-            message.add_to(to_mail)
-            message.set_subject(cname_mail)
-            message.set_html(content_mail)
-            message.set_text(content_mail)
-            message.set_from('contact@goedits.com')
-            status, msg = sg.send(message)
+            email = EmailMessage(cname_mail, content_mail, to=['manikanta@goedits.com'])
+            email.send()
+            # sg = sendgrid.SendGridClient(settings.SENDGRID_USERNAME, settings.SENDGRID_PASSWORD)
+            # message = sendgrid.Mail()
+            # message.add_to(to_mail)
+            # message.set_subject(cname_mail)
+            # message.set_html(content_mail)
+            # message.set_text(content_mail)
+            # message.set_from('contact@goedits.com')
+            # status, msg = sg.send(message)
 
             if status == 200:
                 messages.success(request, 'Your email was successfully sent.')

@@ -107,6 +107,16 @@ SENDGRID_USERNAME = 'kbmanikanta90';
 SENDGRID_PASSWORD = 'bala13422';
 
 
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST_USER = 'manikanta@goedits.com'
+EMAIL_HOST_PASSWORD = 'apple123'
+DEFAULT_FROM_EMAIL = 'support@goedits.com'
+SERVER_EMAIL = 'support@goedits.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/

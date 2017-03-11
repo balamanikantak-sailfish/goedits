@@ -109,6 +109,7 @@ nav.navbar.bootsnav ul.nav > li > a:hover
         <li><a href="/compare">Difference</a></li>
         <li><a href="/pricing">Pricing</a></li>
 	    <li><a href="/contact">Contact Us</a></li>
+		<li><a href="/faq">FAQ's</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -140,7 +141,7 @@ nav.navbar.bootsnav ul.nav > li > a:hover
         <div class="col-md-4 col-sm-4">
           <div class="single-contact-details"> <span class="fa fa-map-marker"></span>
             <h4>Address</h4>
-            <p class="text-muted">India.</p>
+            <p class="text-muted">BTM Layout,Bengaluru,<br/>Karnataka,India.</p>
           </div>
         </div>
       </div>
@@ -149,48 +150,11 @@ nav.navbar.bootsnav ul.nav > li > a:hover
     <div class="row contact-form-design-area wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;"> 
       <!-- START CONTACT FORM DESIGN AREA -->
       <div class="col-md-12">
-        <div class="contact-form">
-        {% if messages %}
-          {% for message in messages %}
-            <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
-              <ul class="messages">
-                <li>{{ message }}</li>
-              </ul>
-            </div>
-          {% endfor %}
-        {% endif %}
-
-        {% if form.errors %}
-          <div class="alert alert-error">
-            {% for key, error in form.errors.items %}
-              {{ error }}
-            {% endfor %}
-          </div>
-        {% endif %}
-		<form id="contact-form" method="post" action="/contact/" autocomplete="false">{% csrf_token %}
-            <div class="row">
-              <div class="form-group col-md-6 wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-			  {{ form.cname_mail }}
-			  </div>
-              <div class="form-group col-md-6 wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-              {{ form.to_mail }}
-              </div>
-			  <div class="form-group col-md-12 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-			  {{ form.mail_subject }}
-			  </div>
-              <div class="form-group col-md-12 wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
-              {{ form.content_mail }}
-              </div>
-              <div class="col-md-12 text-center wow fadeInUp" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
-                <div class="actions">
-                  <input value="Send message" name="submit" id="submitButton" class="btn-medium fill btn-center " title="Submit Your Message!" type="submit">
-                </div>
-				<br/>
-              </div>
-            </div>
-          </form>
-        </div>
+         <div id="map" style="width:100%;height:400px;background:transparent;"></div>
       </div>
+	   <div class="col-md-12">
+	   &nbsp;
+	   </div>
       <!-- /END  CONTACT DETAILS DESIGN AREA --> 
     </div>
   </div>
@@ -229,4 +193,21 @@ nav.navbar.bootsnav ul.nav > li > a:hover
 <script src="{% static "js/lightbox-plus-jquery.min.js" %}"></script> 
 <script src="{% static "js/jquery.mixitup.js" %}"></script> 
 <script src="{% static "js/jquery.stellar.min.js" %}"></script> 
+<script>
+   function myMap() {
+        var myLatLng = {lat: 12.9166, lng: 77.6101};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'GoEdits'
+        });
+      }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBB49UBoR7E5_rzoXMKG_P1AwKVwGBMr10&callback=myMap"></script>
 </body></html>
