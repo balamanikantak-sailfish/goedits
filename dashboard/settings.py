@@ -113,8 +113,8 @@ USE_TZ = True
 
 # send grid
 # please replace "<sendgrid_username>" and "<sendgrid_password>" with your SendGrid credentials
-SENDGRID_USERNAME = '';
-SENDGRID_PASSWORD = '';
+SENDGRID_USERNAME = 'kbmanikanta90';
+SENDGRID_PASSWORD = 'bala13422';
 
 
 
