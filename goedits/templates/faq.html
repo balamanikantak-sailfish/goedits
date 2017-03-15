@@ -16,18 +16,18 @@
 <script src="{% static "js/jquery-ui.js" %}" charset="utf-8"></script>
 <script src="{% static "js/bootstrap.min.js" %}" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="{% static "css/animate.css" %}">
-<link href="{% static "css/lightbox.css" %}" rel="stylesheet">
 <!-- Bootsnav CSS -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,400,200,300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="{% static "css/styles.min.css" %}">
-<link rel="stylesheet" href="{% static "css/style.css" %}">
-<link href="{% static "css/bootsnav.css" %}" rel="stylesheet">
+
 <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/jquery-ui.css" %}">
-
+<link href="{% static "css/bootsnav.css" %}" rel="stylesheet">
+<link href="{% static "css/lightbox.css" %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static "css/style.css" %}">
 <style type="text/css">
 nav.navbar.bootsnav ul.nav > li > a
 {
@@ -38,6 +38,48 @@ nav.navbar.bootsnav ul.nav > li > a:hover
 {
    color : black;
    background-color:Gold !important;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+footer{
+padding:0;
 }
 </style>
 
@@ -77,39 +119,30 @@ $( function() {
     <!-- /.navbar-collapse --> 
   </div>
 </nav>
-<div class="container">
-	
+<section>
+<div class="container-fluid">
 <div class="row">
 			  <div class="area-heading area-heading-style-two text-center">
 				<h2 class="area-title" style="font-family: 'Oswald', sans-serif;">FAQ's</h2>
 			  </div>
 </div>
 <div id="accordion">
-	<h3>Section 1</h3>
+	<h3>1.How do I receive my edits back?</h3>
 	<div>
 		<p>
-		Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-		ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-		amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-		odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+		When your edits are done you will receive an email with your system generated downloaded link by clicking the link you can downloaded all your edited images.
 		</p>
 	</div>
-	<h3>Section 2</h3>
+	<h3>Who will be editing my photos?</h3>
 	<div>
 		<p>
-		Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-		purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-		velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-		suscipit faucibus urna.
+		Our recruitment process is highly sophisticated and we select specialists who are great a hand at photo editing.  Our editors are all Adobe Certified and in-house trained.  Immediately when you upload your photos online Your Order ID gets generated and it moves to the queue of our editing team
 		</p>
 	</div>
-	<h3>Section 3</h3>
+	<h3>Can I give my own idea on the style of editing that I expect?</h3>
 	<div>
 		<p>
-		Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-		Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-		ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-		lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+		Of course, your always welcome with your New ideas on your editing while we setup your team we discuss your editing style .if your don’t have an idea on it we GoEdits create it for you.
 		</p>
 		<ul>
 			<li>List item one</li>
@@ -117,69 +150,55 @@ $( function() {
 			<li>List item three</li>
 		</ul>
 	</div>
-	<h3>Section 4</h3>
+	<h3>How many images can I upload at one time?</h3>
 	<div>
 		<p>
-		Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-		et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-		faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-		mauris vel est.
-		</p>
-		<p>
-		Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-		Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-		inceptos himenaeos.
+		As many as you like! Our storage system allow you to upload as many as you can and the upload batch will be queued to editor.
 		</p>
 	</div>
-		<h3>Section 5</h3>
+		<h3>What happens when my photos are delivered later than my quoted time?</h3>
 	<div>
 		<p>
-		Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-		et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-		faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-		mauris vel est.
+		At GoEdits  we pride ourselves on returning your edited photos back to you on-timeHowever, in certain circumstances, batches might be returned late depending on complexity of edits, queue backup or any other unforeseen and exceptional circumstances which shall me communicated in advance. In order to be fair to our clients, failure delivering your btach quoted time we give 50% off on the edited batch.
 		</p>
-		<p>
-		Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-		Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-		inceptos himenaeos.
-		</p>
+
 	</div>
-		<h3>Section 6</h3>
+		<h3>Is it possible to request revisions/additions on photos?</h3>
 	<div>
 		<p>
-		Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-		et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-		faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-		mauris vel est.
+		Yes, we are very fliexable to our clients after delivery your batch you  can ask for revisions. All your revision will be done on 1 hour. we GoEdits know how important is your edits for you.If you have any questions about how to request revisions, please contact our support team at support@goedits.com .
+
 		</p>
-		<p>
-		Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-		Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-		inceptos himenaeos.
-		</p>
+
 	</div>
-		<h3>Section 7</h3>
+		<h3>what is the pricing structure on a basic editing in GoEdits?</h3>
 	<div>
 		<p>
-		Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-		et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-		faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-		mauris vel est.
+		Good thought! we have 6 years experience industry we started GoEdits with Love and Passion whether your company is small or big our prices are always low with high Quality our basic editing start for 1.50$. we strive to service you 365 day.
 		</p>
+
+	</div>
+	<h3>Do i need to pay before you start working on my edits?</h3>
+	<div>
 		<p>
-		Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-		Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-		inceptos himenaeos.
+		Absolutely Not! Trust is matters. we all always care your edits first yes ! we came with an approach called Work first and Pay next
+		</p>
+
+	</div>	
+<h3>I need my batch deliver before 24 hour do you have ruch timing ?</h3>
+	<div>
+		<p>
+		Yes! we do have our normal order delivery with in  24 Hours no charges on it where as we also have 9 hours delivery and 12 hours delivery cost a additional pricing. any further details on pricing please contact support@goedits.com
 		</p>
 	</div>
-</div>	
+</div>
+</div>
+</section>
 <div class= "row">
 &nbsp;
 </div>
-</div>
  <!-- Footer Section -->
-  <footer class="footer" style="padding:0px">
+  <footer class="footer">
     <div class="footer-widget-section text-center" style="background-color:gray;">
         <div class="container">
             <div class="social-links">
